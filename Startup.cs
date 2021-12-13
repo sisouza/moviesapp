@@ -26,7 +26,7 @@ namespace moviesapp
                 Configuration.GetSection(nameof(MoviesDatabaseSettings)));
 
             services.AddSingleton<IMoviesDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<MoviesDatabaseSettings>>().Value);
+                (IMoviesDatabaseSettings)sp.GetRequiredService<IOptions<MoviesDatabaseSettings>>().Value);
 
             services.AddSingleton<MovieService>();
 
