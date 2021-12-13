@@ -30,7 +30,7 @@ namespace moviesapp.Controllers
 
                     return Ok(findMovies);
                 }
-                catch (Exception error)
+                catch (Exception)
                 {
                     return NotFound(new
                     {
@@ -41,7 +41,7 @@ namespace moviesapp.Controllers
             }
 
 
-            [HttpGet("{id}")]
+            [HttpGet("{id}", Name = "GetMovie")]
             public async Task<ActionResult<Movie>> Get(string id)
             {
                 try
@@ -51,12 +51,15 @@ namespace moviesapp.Controllers
                     return Ok(movie);
 
                 }
-                catch (Exception error)
+                catch (Exception)
                 {
-                    return NotFound(new
-                    {
-                        error = "Movie does not exists"
-                    });
+
+                    return NotFound(
+                        new
+                        {
+                            error = "Movie does not exists"
+                        }
+                    );
                 }
 
             }
@@ -70,7 +73,7 @@ namespace moviesapp.Controllers
 
                     return Ok(newMovie);
                 }
-                catch (Exception error)
+                catch (Exception)
                 {
                     return NotFound(new
                     {
@@ -91,7 +94,7 @@ namespace moviesapp.Controllers
                         Message = "Movie Updated"
                     });
                 }
-                catch (Exception error)
+                catch (Exception)
                 {
                     return NotFound(new
                     {
@@ -109,7 +112,7 @@ namespace moviesapp.Controllers
 
                     return Ok(deleteMovie);
                 }
-                catch (Exception error)
+                catch (Exception)
                 {
                     return NotFound(new
                     {
