@@ -9,7 +9,7 @@ namespace moviesapp.Controllers
 {
     public class MovieController
     {
-        [Route("api/controller")]
+        [Route("api/[controller]")]
         [ApiController]
 
         public class MoviesController : ControllerBase
