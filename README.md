@@ -1,9 +1,8 @@
 ## ABOUT THIS PROJECT
 
-Simple Rest API Movies CRUD in c# using MongoDB Database
+Simple Rest API Movies CRUD in c# using MongoDB Database.
 
 ## ENDPOINTS
-
 
 ``
 POST - Create a new movie
@@ -12,7 +11,6 @@ DELETE - Remove a movie
 GET - List all movies
 GET/:ID - List a single movie
 
-
 ``
 
 ## STRUCTURE
@@ -20,9 +18,20 @@ GET/:ID - List a single movie
 Project Structure
 
 ``
-moviesaoo/
-  - Models
-  - Services
-  - Controllers
+moviesapp/
+
+- Models
+- Services
+- Controllers
 
 ``
+
+## EXECUTING PROJECT
+
+Command in terminal:
+
+> dotnet run
+
+Then in Browser open:
+
+https://localhost:5001/swagger/index.html
