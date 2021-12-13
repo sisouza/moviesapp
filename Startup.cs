@@ -31,6 +31,7 @@ namespace moviesapp
             services.AddSingleton<MovieService>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "moviesapp", Version = "v1" });
