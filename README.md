@@ -4,6 +4,8 @@ Simple Rest API Movies CRUD in c# using MongoDB Database.
 
 ## ENDPOINTS
 
+Aplication Routes
+
 ``
 POST - Create a new movie
 PUT/:ID - Edit a movie
