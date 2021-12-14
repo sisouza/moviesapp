@@ -30,11 +30,12 @@ namespace moviesapp.Controllers
 
                     return Ok(findMovies);
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
                     return NotFound(new
                     {
-                        error = "No Movies to list"
+                        error = error.Message
+
                     });
                 }
 
@@ -51,13 +52,13 @@ namespace moviesapp.Controllers
                     return Ok(movie);
 
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
 
                     return NotFound(
                         new
                         {
-                            error = "Movie does not exists"
+                            error = error.Message
                         }
                     );
                 }
@@ -71,14 +72,15 @@ namespace moviesapp.Controllers
                 {
                     var newMovie = await _movieService.Create(movie);
 
-                    return Ok(newMovie);
+                    return Ok( new {newMovie});
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
                     return NotFound(new
-                    {
-                        error = "Could Not Create Movie"
-                    });
+                        {
+                            error = error.Message
+                        }
+                    );
                 }
             }
 
@@ -90,16 +92,18 @@ namespace moviesapp.Controllers
                     var editMovie = await _movieService.Update(id, movie);
 
                     return Ok(new
-                    {
-                        Message = "Movie Updated"
-                    });
+                        {
+                            Message = "Movie Updated"
+                        }
+                    );
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
                     return NotFound(new
-                    {
-                        error = "Could Not Create Movie"
-                    });
+                        {
+                            error = error.Message
+                        }
+                    );
                 }
             }
 
@@ -110,13 +114,13 @@ namespace moviesapp.Controllers
                 {
                     var deleteMovie = await _movieService.Remove(id);
 
-                    return Ok(deleteMovie);
+                    return Ok( new { deleteMovie});
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
                     return NotFound(new
                     {
-                        error = "Could Not Delete Movie"
+                        error = error.Message
                     });
                 }
             }
